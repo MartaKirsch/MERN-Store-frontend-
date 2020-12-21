@@ -1,0 +1,134 @@
+/* <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+/* variables */
+:root
+{
+  --navy: #090d33;
+  --lighternavy: #2b2f55;
+  --lightgrey:#f7f7f5;
+  --brown:#9e632c;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.navbar
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top:0;
+  background-color: white;
+  height: 4.5vw;
+}
+
+.navbar a
+{
+  padding: 0 1.2vw;
+  color: var(--navy);
+  font-size: 1.5vw;
+  text-decoration: none;
+}
+
+.navbar a:hover, .navbar a:focus
+{
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+}
+
+
+
+
+
+.main h1
+{
+  color:var(--brown);
+  margin: 1vw 0 3vw;
+}
+
+.items
+{
+  margin: 1vw 15vw;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.item
+{
+  width: 30%;
+  margin: 0 0 4vw 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item img
+{
+  width: 100%;
+  height: auto;
+  border-bottom: 2px solid #090d33;
+}
+
+.item .name
+{
+  color: #f7f7f5;
+  background-color: #090d33;
+  text-transform: uppercase;
+  padding: 1vw 0;
+  font-size: 1vw;
+  width: 100%;
+}
+
+.item .price
+{
+  color:#090d33;
+  font-size: 1.5vw;
+  padding: 0.5vw;
+}
+
+.main button, .cart-list button
+{
+  border:none;
+  outline: none;
+  padding: 0.5vw;
+  color: var(--navy);
+  font-size:0.8vw;
+  text-transform: uppercase;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  cursor: pointer;
+}
+
+.main button:hover, .main button:focus, .cart-list button:focus,.cart-list button:hover
+{
+  color: #f7f7f5;
+  background-color:#090d33;
+}
+
+
+
+
+.addWrapper
+{
+  display: flex;
+}
+
+.item .quantity
+{
+  font-size: 1.5vw;
+  padding: 0 1.5vw;
+  color:var(--brown);
+}

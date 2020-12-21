@@ -1,0 +1,84 @@
+#logInWrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 6vw;
+}
+
+#logInWrapper form {
+  display: flex;
+  flex-direction: column;
+  height: 15vw;
+  width: 30vw;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#logInWrapper .cell
+{
+  width: 70%;
+}
+
+#logInWrapper input{
+  outline: none;
+  border: none;
+  border-bottom: 2px solid var(--brown);
+  font-size:1.5vw;
+  padding: 0.5vw;
+  width: 100%;
+}
+
+#logInWrapper input:focus
+{
+  background-color: var(--lightgrey);
+  border-bottom: 2px solid var(--navy);
+}
+
+#logInWrapper button
+{
+  width: 30%;
+  display: flex;
+  height: 2vw;
+  justify-content: center;
+  align-items: center;border:none;
+  outline: none;
+  padding: 0.5vw;
+  color: var(--brown);
+  background-color: var(--lightgrey);
+  font-size:1vw;
+  text-transform: uppercase;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  cursor: pointer;
+}
+
+#logInWrapper button:focus, #logInWrapper button:hover
+{
+  color: var(--lightgrey);
+  background-color: var(--brown);
+}
+
+#registerLink
+{
+  margin-top: 4vw;
+  color:var(--navy);
+  font-size:1vw;
+  cursor: pointer;
+}
+
+#registerLink:hover
+{
+  color:var(--lighternavy);
+  border-bottom: 1px solid var(--lighternavy);
+}
+
+#logInWrapper .errormssg
+{
+  visibility: hidden;
+  display: flex;
+  height: 2vw;
+  font-size: 0.9vw;
+  color: #e72c19;
+  justify-content: center;
+  align-items: center;
+}
