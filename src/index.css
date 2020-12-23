@@ -52,7 +52,7 @@ code {
 
 
 
-.main h1
+h1
 {
   color:var(--brown);
   margin: 1vw 0 3vw;
@@ -99,8 +99,9 @@ code {
   padding: 0.5vw;
 }
 
-.main button, .cart-list button
+.main button, .cart-list button, .cart-list a
 {
+  text-decoration:none;
   border:none;
   outline: none;
   padding: 0.5vw;
@@ -110,12 +111,14 @@ code {
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   cursor: pointer;
+  background-color: var(--lightgrey);
 }
 
-.main button:hover, .main button:focus, .cart-list button:focus,.cart-list button:hover
+.main button:hover, .main button:focus, .cart-list button:focus,.cart-list button:hover, .cart-list a:hover, .cart-list a:focus
 {
   color: #f7f7f5;
   background-color:#090d33;
+  text-decoration:none;
 }
 
 

@@ -18,7 +18,7 @@ class Home extends React.Component{
     axios.get('/api/loaditems').then(res=>{
       if(res.data)
       {
-        console.log(res.data);
+        //console.log(res.data);
         this.props.addItems(res.data);
         this.setState({items:res.data});
       }

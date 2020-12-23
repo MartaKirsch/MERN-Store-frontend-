@@ -8,6 +8,10 @@
 .cart-list
 {
   display:none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
   background-color: white;
   //margin-top: 1vw;
   padding: 1vw;
@@ -20,8 +24,9 @@
   border-bottom: 1px solid var(--navy);
 }
 
-.cart-list button
+.cart-list button,.cart-list a
 {
+  width: auto;
   margin: 0 0 1vw 0;
   font-size: 0.9vw !important;
 }
@@ -35,6 +40,7 @@
   height: 4vw;
   text-transform: uppercase;
   font-size:1vw;
+  margin: .5vw 0;
   color: var(--navy);
 }
 

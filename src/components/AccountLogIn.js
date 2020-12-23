@@ -31,6 +31,8 @@ class Account_LogIn extends React.Component
         input.nextSibling.style.visibility="visible";
       }
       else {
+        console.log("props");
+        console.log(this.props);
         window.location="/account";
       }
     });

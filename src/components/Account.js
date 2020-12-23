@@ -27,9 +27,18 @@ class Account extends React.Component{
   render()
   {
     let display = this.state.logged===false ? <AccountLogIn reload={this.reload}/> : <AccountView/>
+
+    //if logged in correctly and its a redirect, finalize an order
+    if(this.state.logged && sessionStorage.getItem('redirect'))
+    {
+      sessionStorage.removeItem('redirect');
+      window.location = '/cart';
+    }
+
     return(
       display
     )
+
   }
 
 };

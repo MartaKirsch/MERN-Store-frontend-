@@ -11,7 +11,7 @@ class Navbar extends React.Component{
     const lists = document.getElementsByClassName('cart-list');
     const list = lists[0];
 
-    list.style.display="block";
+    list.style.display="flex";
   }
 
   handleMouseOut = (e)=>{
@@ -40,10 +40,10 @@ class Navbar extends React.Component{
 
     let button = !this.props.cartItems||this.props.cartItems.length===0 ? (
 
-      <button>Go shopping!</button>
+      <Link to='/'>Go shopping!</Link>
 
     ) : (
-      <button>Go to cart</button>
+      <Link to='/cart'>Go to cart</Link>
     );
 
     let price = this.props.cartItems&&this.props.cartItems.length!==0 ? (
@@ -56,6 +56,7 @@ class Navbar extends React.Component{
       <div className="navbar">
         <Link to='/'>Home</Link>
         <Link to='/account'>Account</Link>
+        <Link to='/cart'>Cart</Link>
         <div className="cart-wrapper">
           <img src={cart} alt="CART" className="cart" onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}/>
 
