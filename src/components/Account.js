@@ -18,7 +18,7 @@ class Account extends React.Component{
       this.setState(res.data);
       //console.log(this.props);
     })
-  }
+  };
 
   updateState = (login)=>{
     this.setState({logged:true,login:login});
@@ -29,12 +29,17 @@ class Account extends React.Component{
       sessionStorage.removeItem('redirect');
       this.props.history.push('/cart');
     }
-  }
+  };
 
+  logout = ()=>{
+    axios.get('/api/logout').then(res=>{
+      this.props.history.push('/');
+    });
+  };
 
   render()
   {
-    let display = this.state.logged===false ? <AccountLogIn updateState={this.updateState}/> : <AccountView login={this.state.login}/>
+    let display = this.state.logged===false ? <AccountLogIn updateState={this.updateState}/> : <AccountView login={this.state.login} logout={this.logout}/>
 
 
 

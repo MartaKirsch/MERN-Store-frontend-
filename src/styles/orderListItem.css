@@ -1,0 +1,36 @@
+.order
+{
+  display:flex;
+  height: 4vw;
+  border-bottom: 1px solid var(--navy);
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1vw;
+  margin-bottom: 1vw;
+  cursor:pointer;
+  transition: background-color 0.5s;
+  color:var(--navy);
+  text-decoration: none;
+}
+
+.order:hover
+{
+  background-color: var(--lightgrey);
+}
+
+.order__id
+{
+  font-size: 2vw;
+  color:var(--brown);
+}
+
+.order__date
+{
+  font-size: 1.5vw;
+}
+
+.order__price
+{
+  font-size: 2vw;
+  color:var(--brown);
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/accountView.css';
-import Order from './Order.js';
+import OrderListItem from './OrderListItem.js';
 import axios from 'axios';
 
 class AccountView extends React.Component{
@@ -11,20 +11,24 @@ class AccountView extends React.Component{
 
   componentDidMount()
   {
-    axios.get('/api/loadOrders').then(res=>{
-      //console.log(res.data);
-      this.setState({
-        ...this.state,
-        orders:res.data
-      });
-    })
+    if(!sessionStorage.getItem('redirect'))
+    {
+      axios.get('/api/loadOrders').then(res=>{
+        //console.log(res.data);
+        this.setState({
+          ...this.state,
+          orders:res.data
+        });
+      })
+    }
   }
+
 
   render()
   {
     let display = this.state.show==="orders" && this.state.orders.length!==0 ? (
       this.state.orders.map((order) => {
-        return (<Order key={order._id} id={order._id} price={order.price} date={order.date} />)
+        return (<OrderListItem key={order._id} id={order._id} price={order.price} date={order.date} />)
       })
 
     ) : (<h2>No orders yet!</h2>);
@@ -36,6 +40,7 @@ class AccountView extends React.Component{
           <div className="accountView__sidebar">
             <div className="accountView__sidebarItem clicked">Orders</div>
             <div className="accountView__sidebarItem">Addresses</div>
+            <div className="accountView__sidebarItem logout" onClick={this.props.logout}>Log Out</div>
           </div>
           <div className="accountView__content">
             {display}

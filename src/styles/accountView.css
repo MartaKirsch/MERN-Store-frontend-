@@ -43,3 +43,9 @@
 {
   background-color: var(--lightgrey);
 }
+
+.logout
+{
+  font-size:1.3vw;
+  color:var(--brown);
+}

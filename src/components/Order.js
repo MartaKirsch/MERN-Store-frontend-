@@ -1,22 +1,29 @@
 import React from 'react';
 import '../styles/order.css';
-import {Link} from 'react-router-dom';
+import axios from 'axios';
 
-const Order=(props)=>{
+class Order extends React.Component{
 
-  let date = "";
-  let reg = /\d{4}-\d{1,2}-\d{1,2}/;
-  date = props.date.match(reg);
+  componentDidMount()
+  {
+    axios.get('/api/checkLogIn').then(res=>{
+      if(!res.data.logged || res.data.account.orders.length<this.props.match.params.id)
+      {
+        this.props.history.push('/account');
+      }
+    })
+  }
 
-  let address ="/account/order/"+props.id;
 
-  return(
-    <Link className="order" to={address}>
-      <div className="order__id">{props.id}</div>
-      <div className="order__date">{date}</div>
-      <div className="order__price">{props.price}</div>
-    </Link>
-  )
+
+  render()
+  {
+    return(
+      <h1>order page {this.props.match.params.id}</h1>
+    )
+  }
+
+
 
 };
 
