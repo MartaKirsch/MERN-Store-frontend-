@@ -31,7 +31,7 @@ class Account_LogIn extends React.Component
         input.nextSibling.style.visibility="visible";
       }
       else {
-        this.props.updateState();
+        this.props.updateState(res.data.login);
         //window.location="/account";
       }
     });

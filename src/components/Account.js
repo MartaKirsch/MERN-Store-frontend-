@@ -7,7 +7,8 @@ class Account extends React.Component{
 
   state={
     logged:false,
-    happy:true
+    happy:true,
+    login:""
   }
 
   componentDidMount()
@@ -19,8 +20,8 @@ class Account extends React.Component{
     })
   }
 
-  updateState = ()=>{
-    this.setState({logged:true});
+  updateState = (login)=>{
+    this.setState({logged:true,login:login});
 
     //if logged in correctly and its a redirect, go back to cart
     if(sessionStorage.getItem('redirect'))
@@ -33,7 +34,7 @@ class Account extends React.Component{
 
   render()
   {
-    let display = this.state.logged===false ? <AccountLogIn updateState={this.updateState}/> : <AccountView/>
+    let display = this.state.logged===false ? <AccountLogIn updateState={this.updateState}/> : <AccountView login={this.state.login}/>
 
 
 

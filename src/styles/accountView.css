@@ -1,0 +1,45 @@
+.accountView__main
+{
+  width: 70vw;
+  margin: auto;
+  height: 30vw;
+  display: flex;
+}
+.accountView__sidebar
+{
+  width: 30%;
+  border-right: 2px solid var(--navy);
+  padding: 1vw;
+}
+
+.accountView__content
+{
+  width: 70%;
+  overflow-y: auto;
+  padding: 2vw 3vw;
+}
+
+.accountView__sidebarItem
+{
+  display: flex;
+  width: 100%;
+  height: 4vw;
+  font-size: 1vw;
+  text-transform: uppercase;
+  color: var(--navy);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color .5s;
+  margin-bottom: 1vw;
+}
+
+.accountView__sidebarItem:hover
+{
+  background-color: var(--lightgrey);
+}
+
+.clicked
+{
+  background-color: var(--lightgrey);
+}
