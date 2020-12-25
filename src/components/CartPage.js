@@ -31,11 +31,12 @@ class Cart extends React.Component{
       if(res.data.logged)
       {
         //console.log('fin');
-        const items = this.props.items;
+        let items = this.props.items;
 
         let sum=0;
-        items.forEach((item) => {
+        items=items.map((item) => {
           sum+=item.quantity*item.price;
+          return({_id:item._id,quantity:item.quantity});
         });
 
         //console.log(sum);

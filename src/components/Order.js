@@ -7,7 +7,17 @@ class Order extends React.Component{
   componentDidMount()
   {
     axios.get('/api/checkLogIn').then(res=>{
-      if(!res.data.logged || res.data.account.orders.length<this.props.match.params.id)
+
+      let inOrderArray = false;
+      res.data.account.orders.forEach((order) => {
+        if(order._id===this.props.match.params.id)
+        {
+          inOrderArray=true;
+        }
+      });
+
+
+      if(!res.data.logged || !inOrderArray)
       {
         this.props.history.push('/account');
       }

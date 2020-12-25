@@ -10,9 +10,9 @@ const OrderListItem=(props)=>{
 
   let address ="/account/order/"+props.id;
 
+  //<div className="order__id">{props.id}</div>
   return(
     <Link className="order" to={address}>
-      <div className="order__id">{props.id}</div>
       <div className="order__date">{date}</div>
       <div className="order__price">{props.price}</div>
     </Link>
