@@ -7,6 +7,8 @@ import CartPageItem from './CartPageItem.js';
 import itemsActions from '../actions/itemsActions.js';
 
 class Cart extends React.Component{
+
+
   addToCart = (id) => {
     axios.post('/api/getSingleItem', {id}).then(res=>{
       //console.log(res.data);
@@ -24,10 +26,23 @@ class Cart extends React.Component{
 
   handleFinalize = (e)=>{
     axios.get('/api/checkLogIn').then(res=>{
-      console.log(res.data);
+      //console.log(res.data);
 
       if(res.data.logged)
       {
+        //console.log('fin');
+        const items = this.props.items;
+
+        let sum=0;
+        items.forEach((item) => {
+          sum+=item.quantity*item.price;
+        });
+
+        //console.log(sum);
+
+        axios.post('/api/makeAnOrder',{items,sum}).then(res=>{
+          console.log(res.data);
+        });
 
       }
 
@@ -53,6 +68,7 @@ class Cart extends React.Component{
     ) : (
       <div className="noItems">No items yet!</div>
     )
+
 
     let bottom = this.props.items && this.props.items.length!==0 ? (
       <div className="bottom">

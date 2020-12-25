@@ -78,6 +78,15 @@ const rootReducer = (state = initState, action)=>{
 
   }
 
+
+  else if(action.type==="CLEAR_CART")
+  {
+    return {
+      ...state,
+      cart:[]
+    };
+  }
+
   else {
     return {...state}
   }

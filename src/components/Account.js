@@ -19,21 +19,23 @@ class Account extends React.Component{
     })
   }
 
-  reload = ()=>{
-    this.props.history.push('/account');
+  updateState = ()=>{
+    this.setState({logged:true});
+
+    //if logged in correctly and its a redirect, go back to cart
+    if(sessionStorage.getItem('redirect'))
+    {
+      sessionStorage.removeItem('redirect');
+      this.props.history.push('/cart');
+    }
   }
 
 
   render()
   {
-    let display = this.state.logged===false ? <AccountLogIn reload={this.reload}/> : <AccountView/>
+    let display = this.state.logged===false ? <AccountLogIn updateState={this.updateState}/> : <AccountView/>
 
-    //if logged in correctly and its a redirect, finalize an order
-    if(this.state.logged && sessionStorage.getItem('redirect'))
-    {
-      sessionStorage.removeItem('redirect');
-      window.location = '/cart';
-    }
+
 
     return(
       display
