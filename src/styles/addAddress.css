@@ -1,0 +1,62 @@
+form.addAddress{
+  font-size: 1.5vw;
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  margin: 0 auto 4vw auto;
+  align-items: center;
+}
+
+form.addAddress .row{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3vw;
+  height: 5vw;
+  align-items: center;
+}
+
+form.addAddress input[type="text"]{
+  width: 40%;
+  border:none;
+  border-bottom: 1px solid var(--brown);
+  height: 50%;
+  font-size:1.2vw;
+  transition: background-color .5s,width .5s;
+  padding: 0 .6vw;
+}
+
+form.addAddress input[type="text"]:focus{
+  width: 50%;
+  /* background-color: var(--lightgrey); */
+}
+
+form.addAddress input[type="submit"]{
+  width: 50%;
+  border:none;
+  border-bottom:1px solid var(--navy);
+  outline: none;
+  padding: 0.5vw;
+  color: var(--navy);
+  font-size:0.8vw;
+  text-transform: uppercase;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  cursor: pointer;
+  background-color: var(--lightgrey);
+}
+
+form.addAddress input[type="submit"]:hover, form.addAddress input[type="submit"]:focus{
+  color: #f7f7f5;
+  background-color:#090d33;
+  text-decoration:none;
+}
+
+form.addAddress input.wrong{
+  /* background-color: #fc6f03; */
+  border-bottom: 3px solid red;
+}
+form.addAddress input[type="submit"].wrong{
+  background-color: #bf0000;
+  border-bottom: 1px solid #bf0000;
+}

@@ -42,7 +42,7 @@ class Cart extends React.Component{
         //console.log(sum);
 
         axios.post('/api/makeAnOrder',{items,sum}).then(res=>{
-          console.log(res.data);
+          //console.log(res.data);
           this.props.clearCart();
           this.props.history.push('/');
         });
