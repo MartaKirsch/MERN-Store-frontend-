@@ -75,7 +75,7 @@ class Cart extends React.Component{
 
     let bottom = this.props.items && this.props.items.length!==0 ? (
       <div className="bottom">
-        <div className="price">{sum}</div>
+        <div className="price">{(Math.round(sum * 100) / 100).toFixed(2)}</div>
         <button onClick={this.handleFinalize} className="finalize">Make an Order</button>
       </div>
     ) : (
