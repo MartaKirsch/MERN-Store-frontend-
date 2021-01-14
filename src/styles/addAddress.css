@@ -31,7 +31,7 @@ form.addAddress input[type="text"]:focus{
   /* background-color: var(--lightgrey); */
 }
 
-form.addAddress input[type="submit"]{
+form.addAddress input[type="submit"],.deleteButton{
   width: 50%;
   border:none;
   border-bottom:1px solid var(--navy);
@@ -59,4 +59,56 @@ form.addAddress input.wrong{
 form.addAddress input[type="submit"].wrong{
   background-color: #bf0000;
   border-bottom: 1px solid #bf0000;
+}
+
+.deleteButton{
+  background-color: #fc3503;
+  color:white;
+  width:auto;
+  border-bottom: 1px solid #fc3503;
+}
+.deleteButton:hover{
+  background-color: var(--lightgrey);
+  color:#fc3503;
+}
+
+.checkDelete{
+  justify-content: center;
+  flex-direction: column;
+  display:none;
+  align-items: center;
+  font-size: 1.5vw;
+  margin: 2vw 0;
+  text-decoration: underline solid #fc3503 2px;
+}
+
+.visible{
+  display:flex;
+}
+
+.checkDelete div{
+  margin-top: 1vw;
+}
+
+.buttons{
+  width: 30%;
+  display:flex;
+  justify-content: space-around;
+}
+
+.buttons button{
+  padding: .6vw 2vw;
+  border-radius: 15px;
+  border:none;
+  font-size:1.2vw;
+  cursor: pointer;
+  background-color: var(--lightgrey);
+}
+
+.buttons button:hover{
+  background-color:#e3e3e3;
+}
+
+button.yes{
+  text-decoration: underline solid #22cf00 2px;
 }

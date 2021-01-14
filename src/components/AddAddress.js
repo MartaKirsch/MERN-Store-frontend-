@@ -4,26 +4,41 @@ import '../styles/addAddress.css';
 
 const AddAddress = (props)=>{
 
+  const [saying,setSaying]=useState("add a new");
   const [flags,setFlags]=useState([0,0,0,0,0,0]);
   const [address, setAddress]=useState({name:"",surname:"",city:"",street:"",homeNumber:"",postalCode:""});
 
   useEffect(()=>{
+
     axios.get('/api/checkLogIn').then(res=>{
       if(!res.data.logged){
         props.history.push('/');
       }
+      let user=res.data.account.login;
+
+      if(props.match.params.id)
+      {
+        axios.get(`/api/getAddress/${props.match.params.id}`).then(res=>{
+
+          if(res.statusText!=="OK"){
+            throw Error("couldn't fetch data from this resource")
+          }
+          if(res.data.user!==user)
+          {
+            throw Error("this account does not have this order")
+          }
+          setAddress(res.data);
+          setFlags([1,1,1,1,1,1]);
+        }).catch(err=>{
+          console.log(err.message);
+          props.history.push('/account');
+        });
+        setSaying("edit your");
+      }
+
     });
 
-    if(props.match.params.id)
-    {
-      axios.get(`/api/getAddress/${props.match.params.id}`).then(res=>{
-        if(res.statusText!=="OK"){
-          throw Error("couldn't fetch data from this resource")
-        }
-        setAddress(res.data);
-        setFlags([1,1,1,1,1,1]);
-      }).catch(err=>console.log(err.message));
-    }
+
   },[props.history,props.match.params.id]);
 
   const handleCheckInput = (e)=>{
@@ -90,8 +105,30 @@ const AddAddress = (props)=>{
 
   };
 
+  const handleToggleOptions = (e)=>{
+    document.querySelector('.checkDelete').classList.toggle('visible');
+  };
+
+  const handleDeleteAddress=(e)=>{
+    axios.get(`/api/deleteAddress/${props.match.params.id}`).then(res=>{
+      if(res.statusText!=="OK")
+      {
+        throw Error("couldn't delete this address");
+      }
+      props.history.push('/account');
+    }).catch(err=>console.log(err.message))
+  };
+
   return(<>
-    <h1>Here you can add a new address</h1>
+    <h1>Here you can {saying} address</h1>
+    {props.match.params.id&&<button className="deleteButton" onClick={handleToggleOptions}>Delete This Address</button>}
+    <div className="checkDelete">
+      <div>Are you sure you want to delete this address?</div>
+      <div className="buttons">
+        <button className="yes" onClick={handleDeleteAddress}>Yes</button>
+        <button className="no" onClick={handleToggleOptions}>No</button>
+      </div>
+    </div>
     <form className="addAddress" onSubmit={handleSubmit}>
       <div className="row">
         <label htmlFor="name">Name</label>
